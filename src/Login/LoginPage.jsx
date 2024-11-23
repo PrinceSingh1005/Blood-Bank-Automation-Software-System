@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../UserContext";
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -11,7 +12,8 @@ const LoginPage = () => {
     address: "",
   });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { login } = useUser(); 
 
   const handleRoleChange = (e) => {
     setUserRole(e.target.value);
@@ -29,7 +31,14 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(isSignUp ? "SignUp Data" : "Login Data", { userRole, formData });
-  
+
+    // Simulate login
+    login({
+      username: formData.username,
+      role: userRole,
+      profileImage: "pic.png", // Placeholder image
+    });
+
     switch (userRole) {
       case "donor":
         navigate("/donor-dashboard");
@@ -47,11 +56,11 @@ const LoginPage = () => {
         console.error("Unknown role:", userRole);
     }
   };
-  
 
   const toggleMode = () => {
     setIsSignUp((prevMode) => !prevMode);
   };
+
   return (
     <div className="flex w-full items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-[500px]">

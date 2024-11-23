@@ -112,7 +112,7 @@ const Donor = () => {
 
         {/* Right Sidebar */}
         <aside className="w-1/6 bg-white shadow-md px-4">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center p-2">
             <img
               src="pic.png"
               alt="profile"
