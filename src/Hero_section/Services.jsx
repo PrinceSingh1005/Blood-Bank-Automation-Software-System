@@ -41,7 +41,7 @@ const Services = () => {
     ];
 
     return (
-        <div className="h-auto py-16 bg-gradient-to-b from-red-50 to-red-200">
+        <div className="h-auto pt-24 pb-2 bg-gradient-to-b from-red-50 to-red-200">
             <div className="text-center mb-12">
                 <div className="text-4xl font-bold text-red-600 uppercase border-b-2 border-red-500 inline-block">Our Services</div>
                 <p className="text-xl text-gray-600 mt-4">
@@ -49,8 +49,7 @@ const Services = () => {
                 </p>
             </div>
 
-            {/* Services List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
                 {service.map((serve) => {
                     return (
                         <div className="overflow-hidden rounded-lg relative">

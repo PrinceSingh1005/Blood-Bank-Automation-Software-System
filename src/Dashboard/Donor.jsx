@@ -1,67 +1,119 @@
 import React from "react";
+import Calendar from "./Calender";
 
 const Donor = () => {
-  // Example donor data
-  const donor = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    bloodGroup: "O+",
-    lastDonationDate: "2023-10-15",
-    donationHistory: [
-      { date: "2023-10-15", type: "Whole Blood", location: "Community Center" },
-      { date: "2023-08-20", type: "Plasma", location: "City Hospital" },
-      { date: "2023-06-10", type: "Platelets", location: "Health Clinic" }
-    ]
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-200 py-16">
-      <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <div className="text-3xl font-bold text-red-600 text-center mb-6 boarder border-b-4 border-red-500">Donor Dashboard</div>
+    <div className="max-h-fit bg-gray-100 flex flex-col pt-24 p-4">
+      {/* Sidebar */}
+      <div className="flex">
+        <aside className="w-1/6 bg-white shadow-md p-4">
+          <div className="text-center mb-8">
+            <h1 className="text-xl font-bold text-red-700">Donor Dashboard</h1>
+          </div>
+          <nav className="space-y-6">
+            <div className="flex items-center gap-3 text-red-600">
+              <span className="material-icons">dashboard</span> Dashboard
+            </div>
+            <div className="flex items-center gap-3 text-red-600">
+              <span className="material-icons">favorite</span> Donations
+            </div>
+            <div className="flex items-center gap-3 text-red-600">
+              <span className="material-icons">settings</span> Settings
+            </div>
+            <div className="flex items-center gap-3 text-red-600">
+              <span className="material-icons">logout</span> Logout
+            </div>
+          </nav>
+        </aside>
 
-        <div className="flex flex-row justify-around">
-          <div >
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-700">Donor Information</h3>
-              <div className="mt-4">
-                <p className="text-lg text-gray-600"><strong>Name:</strong> {donor.name}</p>
-                <p className="text-lg text-gray-600"><strong>Email:</strong> {donor.email}</p>
-                <p className="text-lg text-gray-600"><strong>Blood Group:</strong> {donor.bloodGroup}</p>
-                <p className="text-lg text-gray-600"><strong>Last Donation Date:</strong> {donor.lastDonationDate}</p>
+        {/* Main Content */}
+        <main className="flex-1 bg-gray-100 p-6">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-semibold text-gray-800">Welcome, Mr. Prince Singh</h2>
+            <div className="flex gap-4">
+              <div className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full">
+                This Week
+              </div>
+              <div className="bg-white shadow-md p-2 rounded-full">
+                <span className="material-icons">notifications</span>
               </div>
             </div>
+          </div>
 
-            {/* Donation History Section */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-700">Donation History</h3>
-              <ul className="mt-4">
-                {donor.donationHistory.map((donation, index) => (
-                  <li key={index} className="flex justify-between mb-4">
-                    <div className="text-lg text-gray-600">
-                      <p><strong>Date:</strong> {donation.date}</p>
-                      <p><strong>Type:</strong> {donation.type}</p>
-                      <p><strong>Location:</strong> {donation.location}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          {/* Stats Section */}
+          <div className="grid grid-cols-4 gap-6">
+            <div className="bg-white shadow-md p-4 rounded-lg text-center">
+              <h3 className="text-gray-600">Heart Rate</h3>
+              <p className="text-2xl font-bold text-gray-600">102 bpm</p>
             </div>
-
-            {/* Schedule Next Donation Section */}
-            <div className="bg-red-100 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-gray-700 mb-4">Schedule Next Donation</h3>
-              <p className="text-lg text-gray-600 mb-4">
-                You are eligible to donate again in <strong>4 weeks</strong> from your last donation date.
-              </p>
-              <button className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-all">
-                Schedule Donation
-              </button>
+            <div className="bg-white shadow-md p-4 rounded-lg text-center">
+              <h3 className="text-gray-600">Temperature</h3>
+              <p className="text-2xl font-bold">36.6°C</p>
+            </div>
+            <div className="bg-white shadow-md p-4 rounded-lg text-center">
+              <h3 className="text-gray-600">Blood Pressure</h3>
+              <p className="text-2xl font-bold text-blue-600">120/80</p>
+            </div>
+            <div className="bg-white shadow-md p-4 rounded-lg text-center">
+              <h3 className="text-gray-600">Glucose</h3>
+              <p className="text-2xl font-bold text-green-600">90 mg/dL</p>
             </div>
           </div>
-        <div>
-          <img className="rounded-full w-64" src="Photo.jpg" alt="Photo" />
-        </div>
-        </div>
+
+          {/* Analytics Section */}
+          <div className="grid grid-cols-2 gap-6 mt-6">
+            {/* Left: Water & General Health */}
+            <div className="bg-white shadow-md p-4 rounded-lg">
+              <h3 className="text-gray-600">Water Balance</h3>
+              <p className="text-4xl font-bold text-blue-600">42%</p>
+              <p className="text-sm text-gray-500">50% less than last week</p>
+            </div>
+            <div className="bg-white shadow-md p-4 rounded-lg">
+              <h3 className="text-gray-600">General Health</h3>
+              <p className="text-4xl font-bold text-yellow-600">61%</p>
+              <p className="text-sm text-gray-500">Improved from last week</p>
+            </div>
+          </div>
+
+          {/* Activity Analytics */}
+          <div className="bg-white shadow-md p-6 mt-6 rounded-lg">
+            <h3 className="text-gray-600 mb-4">Activity Analytics</h3>
+            <div className="h-32 bg-gray-200 rounded-lg flex justify-center items-center">
+              <p className="text-gray-500">[Graph Placeholder]</p>
+            </div>
+          </div>
+        </main>
+
+        {/* Right Sidebar */}
+        <aside className="w-1/6 bg-white shadow-md px-4">
+          <div className="flex flex-col items-center">
+            <img
+              src="pic.png"
+              alt="profile"
+              className="w-24 h-24 rounded-full mb-4 bg-red-500"
+            />
+            <h3 className="text-xl font-semibold text-red-800">Prince Singh</h3>
+            <p className="text-sm text-red-600">21 years</p>
+          </div>
+          <div>
+            <Calendar />
+          </div>
+          <div className="mt-2 pb-4">
+            <p className="text-red-500 mb-2">Next Appointments</p>
+            <ul className="space-y-4">
+              <li className="bg-red-100 p-4 rounded-lg text-sm text-red-700">
+                Dentist - 10:00 AM
+              </li>
+              <li className="bg-blue-100 p-4 rounded-lg text-sm text-blue-700">
+                Oculist - 11:45 AM
+              </li>
+              <li className="bg-red-100 p-4 rounded-lg text-sm text-red-700">
+                Cardiologist - 02:00 PM
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
   );

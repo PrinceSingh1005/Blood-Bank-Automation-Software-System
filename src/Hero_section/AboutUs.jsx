@@ -6,21 +6,7 @@ const AboutUs = () => {
     const navigate = useNavigate();
   return (
     <div className="h-screen flex flex-col items-center justify-center text-center p-10 bg-gradient-to-b from-red-50 to-red-200">
-      {/* Black Blend Overlay
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundImage: `url("home.jpg")`, // Replace with a suitable background image
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      ></div> */}
-
-      {/* Content */}
-        <h1 className="text-5xl font-bold mb-6 mx-auto boarder border-b-4 border-red-500">About Us</h1>
+        <h1 className="text-5xl font-bold mt-16 mb-3 mx-auto boarder border-b-4 border-red-500">About Us</h1>
       <div className="flex items-center justify-evenly h-full text-center">
         <div className="w-3/5 text-center">
         <p className="text-lg leading-relaxed max-w-3xl mb-8">

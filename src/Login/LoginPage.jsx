@@ -11,7 +11,7 @@ const LoginPage = () => {
     address: "",
   });
 
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); 
 
   const handleRoleChange = (e) => {
     setUserRole(e.target.value);
@@ -30,7 +30,6 @@ const LoginPage = () => {
     e.preventDefault();
     console.log(isSignUp ? "SignUp Data" : "Login Data", { userRole, formData });
   
-    // Role-based navigation
     switch (userRole) {
       case "donor":
         navigate("/donor-dashboard");
@@ -60,7 +59,6 @@ const LoginPage = () => {
           {isSignUp ? "SignUp" : "Login"} as {userRole.charAt(0).toUpperCase() + userRole.slice(1)}
         </h2>
 
-                {/* Role Selection */}
                 <div className="mb-6">
                     <div className="flex justify-between gap-4 cursor-pointer">
                         {["donor", "receiver", "hospital", "organization"].map((role) => (
@@ -78,9 +76,7 @@ const LoginPage = () => {
                         ))}
                     </div>
                 </div>
-        {/* Form */}
         <form onSubmit={handleSubmit}>
-          {/* Username Field */}
           <div className="mb-4">
             <label
               htmlFor="username"
@@ -100,7 +96,6 @@ const LoginPage = () => {
               required
             />
           </div>
-          {/* Password Field */}
           <div className="mb-4">
             <label
               htmlFor="password"
@@ -120,7 +115,6 @@ const LoginPage = () => {
               required
             />
           </div>
-          {/* Additional Fields for SignUp */}
           {isSignUp && (
             <div className="mb-4">
               <label
@@ -141,8 +135,6 @@ const LoginPage = () => {
               />
             </div>
           )}
-
-
           {isSignUp && (
             <div className="mb-4">
               <label
@@ -163,7 +155,6 @@ const LoginPage = () => {
               />
             </div>
           )}
-
           {isSignUp && (
             <div className="mb-4">
               <label
@@ -185,14 +176,12 @@ const LoginPage = () => {
             </div>
           )}
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
           >
             {isSignUp ? "SignUp" : "Login"}
           </button>
-          {/* Toggle Between Login and SignUp */}
           <h2 className="p-2 text-center">
             {isSignUp ? "Already registered?" : "Not registered yet?"}{" "}
             <span
