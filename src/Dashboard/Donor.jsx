@@ -1,27 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import Calendar from "./Calender";
+import { useNavigate } from "react-router-dom";
 
 const Donor = () => {
+  const [close, setClose] = useState(false);
+  const navigate = useNavigate();
+  const toggle = () => {
+    setClose(!close);
+  };
+
   return (
     <div className="max-h-fit bg-gray-100 flex flex-col pt-24 p-4">
       {/* Sidebar */}
       <div className="flex">
-        <aside className="w-1/6 bg-white shadow-md p-4">
-          <div className="text-center mb-8">
-            <h1 className="text-xl font-bold text-red-700">Donor Dashboard</h1>
+        <aside
+          className={`${
+            close ? "w-12" : "w-1/6"
+          } bg-white shadow-md p-4 transition-all duration-300 ease-in-out`}
+        >
+          <div className="flex gap-4 items-center mb-8">
+            <button
+              onClick={toggle}
+              className="text-gray-600 hover:text-gray-800 p-1 rounded"
+            >
+              <span className="material-icons">menu</span>
+            </button>
+            {!close && (
+              <h1 className="text-xl font-bold text-red-700">Donor Dashboard</h1>
+            )}
           </div>
           <nav className="space-y-6">
-            <div className="flex items-center gap-3 text-red-600">
-              <span className="material-icons">dashboard</span> Dashboard
+            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+              <span className="material-icons">dashboard</span>
+              {!close && "Dashboard"}
             </div>
-            <div className="flex items-center gap-3 text-red-600">
-              <span className="material-icons">favorite</span> Donations
+            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+              <span className="material-icons">favorite</span>
+              {!close && "Donations"}
             </div>
-            <div className="flex items-center gap-3 text-red-600">
-              <span className="material-icons">settings</span> Settings
+            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+              <span className="material-icons">settings</span>
+              {!close && "Settings"}
             </div>
-            <div className="flex items-center gap-3 text-red-600">
-              <span className="material-icons">logout</span> Logout
+            <div onClick={() => navigate("/auth")} className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+              <span className="material-icons">logout</span>
+              {!close && "Logout"}
             </div>
           </nav>
         </aside>
@@ -30,7 +53,9 @@ const Donor = () => {
         <main className="flex-1 bg-gray-100 p-6">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold text-gray-800">Welcome, Mr. Prince Singh</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">
+              Welcome, Mr. Prince Singh
+            </h2>
             <div className="flex gap-4">
               <div className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full">
                 This Week
