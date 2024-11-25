@@ -9,21 +9,42 @@ const Donor = () => {
     setClose(!close);
   };
 
+  // Dummy data for the table
+  const tableData = [
+    {
+      phone: "1234567890",
+      date: "10/11/2024",
+      bloodGroup: "A+",
+      address: "123 Main Street, Cityville",
+    },
+    {
+      phone: "9876543210",
+      date: "20/11/2024",
+      bloodGroup: "O",
+      address: "456 Elm Street, Townsville",
+    },
+    {
+      phone: "5556667777",
+      date: "24/11/2024",
+      bloodGroup: "B+",
+      address: "789 Oak Avenue, Metropolis",
+    },
+  ];
+
   return (
     <div className="max-h-fit bg-gray-100 flex flex-col pt-24 p-4">
       {/* Sidebar */}
       <div className="flex">
         <aside
-          className={`${
-            close ? "w-12" : "w-1/6"
-          } bg-white shadow-md p-4 transition-all duration-300 ease-in-out`}
+          className={`${close ? "w-12" : "w-1/6"
+            } bg-white shadow-md p-4 transition-all duration-300 ease-in-out`}
         >
           <div className="flex gap-4 items-center mb-8">
             <button
               onClick={toggle}
               className="text-gray-600 hover:text-gray-800 p-1 rounded"
             >
-              <span className="material-icons">menu</span>
+              <span className="material-icons text-red-600 mt-2">menu</span>
             </button>
             {!close && (
               <h1 className="text-xl font-bold text-red-700">Donor Dashboard</h1>
@@ -42,7 +63,10 @@ const Donor = () => {
               <span className="material-icons">settings</span>
               {!close && "Settings"}
             </div>
-            <div onClick={() => navigate("/auth")} className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+            <div
+              onClick={() => navigate("/auth")}
+              className="flex items-center gap-3 text-red-600 cursor-pointer w-fit"
+            >
               <span className="material-icons">logout</span>
               {!close && "Logout"}
             </div>
@@ -101,12 +125,33 @@ const Donor = () => {
             </div>
           </div>
 
-          {/* Activity Analytics */}
+          {/* Analytics Section */}
           <div className="bg-white shadow-md p-6 mt-6 rounded-lg">
             <h3 className="text-gray-600 mb-4">Activity Analytics</h3>
-            <div className="h-32 bg-gray-200 rounded-lg flex justify-center items-center">
-              <p className="text-gray-500">[Graph Placeholder]</p>
-            </div>
+            {/* Table Section */}
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-gray-200 text-gray-600">
+                  <th className="p-4 border-b-2">Phone Number</th>
+                  <th className="p-4 border-b-2">Date</th>
+                  <th className="p-4 border-b-2">Blood Group</th>
+                  <th className="p-4 border-b-2">Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tableData.map((row, index) => (
+                  <tr
+                    key={index}
+                    className="hover:bg-gray-100 text-gray-800 border-b"
+                  >
+                    <td className="p-4">{row.phone}</td>
+                    <td className="p-4">{row.date}</td>
+                    <td className="p-4">{row.bloodGroup}</td>
+                    <td className="p-4">{row.address}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </main>
 
@@ -145,3 +190,5 @@ const Donor = () => {
 };
 
 export default Donor;
+
+

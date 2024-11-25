@@ -8,6 +8,8 @@ import AboutUs from "./Hero_section/AboutUs";
 import Contact from "./Hero_section/Contact";
 import Services from "./Hero_section/Services";
 import Receiver from "./Dashboard/Reciever";
+import Recipient from "./Hero_section/Recipient";
+import Admin from "./Dashboard/Admin";
 
 const App = () => {
   return (
@@ -15,12 +17,14 @@ const App = () => {
       <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Recipient" element={<Recipient />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/auth" element={<FirstPage />} />
         <Route path="/donor-dashboard" element={<DonorDashboard />} />
         <Route path="/Receiver-dashboard" element={<Receiver />} />
+        <Route path="/Admin-dashboard" element={<Admin />} />
       </Routes>
       </Layout>
     </Router>

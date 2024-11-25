@@ -35,6 +35,12 @@ const Navbar = () => {
             Home
           </div>
           <div
+            onClick={() => navigate("/Recipient")}
+            className="cursor-pointer hover:text-red-300 transition-colors"
+          >
+            Blood Request
+          </div>
+          <div
             onClick={() => navigate("/aboutUs")}
             className="cursor-pointer hover:text-red-300 transition-colors"
           >

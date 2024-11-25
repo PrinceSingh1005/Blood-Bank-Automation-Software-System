@@ -38,7 +38,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="max-w-lg mx-auto mt-5 p-4 border rounded-lg shadow-md bg-white">
+    <div className="max-w-lg max-h-fit mx-auto mt-5 p-4 border rounded-lg shadow-md bg-white">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <button
@@ -78,7 +78,7 @@ const Calendar = () => {
           return (
             <div
               key={index}
-              className={`p-2 h-12 flex items-center justify-center rounded-lg ${
+              className={`p-2 h-auto flex items-center justify-center rounded-lg ${
                 isToday
                   ? "bg-red-500 text-white font-bold" // Style for today
                   : day

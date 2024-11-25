@@ -47,7 +47,7 @@ const LoginPage = () => {
         navigate("/receiver-dashboard");
         break;
       case "hospital":
-        navigate("/hospital-dashboard");
+        navigate("/Admin-dashboard");
         break;
       case "organization":
         navigate("/organization-dashboard");

@@ -22,10 +22,6 @@ const Receiver = () => {
             <span className="ml-4">Analytics</span>
           </div>
           <div className="flex items-center p-2 hover:bg-red-50 hover:text-red-500 cursor-pointer rounded-lg">
-            <span className="material-icons">people</span>
-            <span className="ml-4">Donors</span>
-          </div>
-          <div className="flex items-center p-2 hover:bg-red-50 hover:text-red-500 cursor-pointer rounded-lg">
             <span className="material-icons">local_hospital</span>
             <span className="ml-4">Patients</span>
           </div>
