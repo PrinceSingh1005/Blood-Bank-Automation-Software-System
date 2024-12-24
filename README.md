@@ -101,7 +101,7 @@ AI Integration: Predict blood demand based on historical data.
 Payment Gateway: Enable online donations for blood banks.
 Contributors
 Prince Singh – Project Manager
-Sheru – QA Support
+Prakash Singh – QA Support
 And the amazing developer team!
 License
 This project is licensed under the MIT License.
