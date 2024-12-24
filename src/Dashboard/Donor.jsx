@@ -36,8 +36,8 @@ const Donor = () => {
       {/* Sidebar */}
       <div className="flex">
         <aside
-          className={`${close ? "w-12" : "w-1/6"
-            } bg-white shadow-md p-4 transition-all duration-300 ease-in-out`}
+          className={`${close ? "w-14" : "w-1/6"
+            } bg-white shadow-md p-4 transition-all duration-700 ease-in-out`}
         >
           <div className="flex gap-4 items-center mb-8">
             <button
@@ -46,29 +46,27 @@ const Donor = () => {
             >
               <span className="material-icons text-red-600 mt-2">menu</span>
             </button>
-            {!close && (
-              <h1 className="text-xl font-bold text-red-700">Donor Dashboard</h1>
-            )}
+            <h1 className="text-xl font-bold text-red-700 whitespace-nowrap">Donor Dashboard</h1>
           </div>
           <nav className="space-y-6">
-            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+            <div className="flex items-center pl-1 gap-3 text-red-600 cursor-pointer w-fit">
               <span className="material-icons">dashboard</span>
-              {!close && "Dashboard"}
+              Dashboard
             </div>
-            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+            <div className="flex items-center pl-1 gap-3 text-red-600 cursor-pointer w-fit">
               <span className="material-icons">favorite</span>
-              {!close && "Donations"}
+              Donations
             </div>
-            <div className="flex items-center gap-3 text-red-600 cursor-pointer w-fit">
+            <div className="flex items-center pl-1 gap-3 text-red-600 cursor-pointer w-fit">
               <span className="material-icons">settings</span>
-              {!close && "Settings"}
+              Settings
             </div>
             <div
               onClick={() => navigate("/auth")}
-              className="flex items-center gap-3 text-red-600 cursor-pointer w-fit"
+              className="flex items-center pl-1 gap-3 text-red-600 cursor-pointer w-fit"
             >
               <span className="material-icons">logout</span>
-              {!close && "Logout"}
+              Logout
             </div>
           </nav>
         </aside>
@@ -84,8 +82,11 @@ const Donor = () => {
               <div className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full">
                 This Week
               </div>
-              <div className="bg-white shadow-md p-2 rounded-full">
+              <div className="bg-white shadow-md p-2 rounded-full cursor-pointer">
                 <span className="material-icons">notifications</span>
+              </div>
+              <div>
+                
               </div>
             </div>
           </div>
@@ -110,7 +111,6 @@ const Donor = () => {
             </div>
           </div>
 
-          {/* Analytics Section */}
           <div className="grid grid-cols-2 gap-6 mt-6">
             {/* Left: Water & General Health */}
             <div className="bg-white shadow-md p-4 rounded-lg">
@@ -127,7 +127,7 @@ const Donor = () => {
 
           {/* Analytics Section */}
           <div className="bg-white shadow-md p-6 mt-6 rounded-lg">
-            <h3 className="text-gray-600 mb-4">Activity Analytics</h3>
+            <h3 className="text-gray-600 mb-4">Donor Records</h3>
             {/* Table Section */}
             <table className="w-full text-left border-collapse">
               <thead>

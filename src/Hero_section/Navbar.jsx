@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../UserContext";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useUser(); // Access user and logout function from context
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="relative flex items-center justify-evenly p-2 bg-transparent">
+      <div className="absolute inset-0"></div>
+      <div className="relative flex items-center justify-between md:justify-evenly p-4 bg-transparent">
         {/* Logo */}
         <img
           className="h-16 cursor-pointer"
@@ -18,52 +24,68 @@ const Navbar = () => {
           onClick={() => navigate("/")}
         />
 
+        {/* Hamburger Icon */}
+        <div className="md:hidden text-white text-2xl cursor-pointer" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
         {/* Navigation Links */}
         <div
-          className="flex gap-6 text-lg font-medium text-white p-3 rounded-lg"
-          style={{
-            background: "rgba(255, 255, 255, 0.2)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-          }}
+          className={`absolute md:static top-20 left-0 w-full md:w-auto flex flex-col md:flex-row gap-6 text-lg font-medium text-white bg-black md:bg-transparent p-5 md:p-3 rounded-lg transition-all duration-300 ease-in-out 
+          ${isMenuOpen ? "block" : "hidden md:flex"}`}
+          style={isMenuOpen ? {} : { background: "rgba(255, 255, 255, 0.2)", backdropFilter: "blur(10px)" }}
         >
           <div
-            onClick={() => navigate("/")}
-            className="cursor-pointer hover:text-red-300 transition-colors"
+            onClick={() => {
+              navigate("/");
+              setIsMenuOpen(false);
+            }}
+            className="cursor-pointer text-black hover:text-red-300 transition-colors"
           >
             Home
           </div>
           <div
-            onClick={() => navigate("/Recipient")}
-            className="cursor-pointer hover:text-red-300 transition-colors"
+            onClick={() => {
+              navigate("/Recipient");
+              setIsMenuOpen(false);
+            }}
+            className="cursor-pointer text-black hover:text-red-400 transition-colors"
           >
             Blood Request
           </div>
           <div
-            onClick={() => navigate("/aboutUs")}
-            className="cursor-pointer hover:text-red-300 transition-colors"
+            onClick={() => {
+              navigate("/aboutUs");
+              setIsMenuOpen(false);
+            }}
+            className="cursor-pointer text-black hover:text-red-300 transition-colors"
           >
             About Us
           </div>
           <div
-            onClick={() => navigate("/contact")}
-            className="cursor-pointer hover:text-red-300 transition-colors"
+            onClick={() => {
+              navigate("/contact");
+              setIsMenuOpen(false);
+            }}
+            className="cursor-pointer text-black hover:text-red-300 transition-colors"
           >
             Contact
           </div>
           <div
-            onClick={() => navigate("/services")}
-            className="cursor-pointer hover:text-red-300 transition-colors"
+            onClick={() => {
+              navigate("/services");
+              setIsMenuOpen(false);
+            }}
+            className="cursor-pointer text-black hover:text-red-300 transition-colors"
           >
             Services
           </div>
         </div>
 
         {/* User Profile / Login */}
-        <div>
+        <div className="hidden md:flex items-center gap-4">
           {user ? (
-            <div className="flex items-center gap-4">
+            <>
               <img
                 src={user.profileImage || "default-avatar.png"}
                 alt="profile"
@@ -77,7 +99,7 @@ const Navbar = () => {
               >
                 Logout
               </button>
-            </div>
+            </>
           ) : (
             <button
               onClick={() => navigate("/auth")}
@@ -88,6 +110,45 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      {/* User Profile / Login for Mobile */}
+      {isMenuOpen && (
+        <div className="flex flex-col items-center mt-4 md:hidden">
+          {user ? (
+            <>
+              <img
+                src={user.profileImage || "default-avatar.png"}
+                alt="profile"
+                className="w-10 h-10 bg-red-500 rounded-full cursor-pointer border-2 border-red-500 hover:border-red-700"
+                title={user.username}
+                onClick={() => {
+                  navigate("/profile");
+                  setIsMenuOpen(false);
+                }}
+              />
+              <button
+                onClick={() => {
+                  logout();
+                  setIsMenuOpen(false);
+                }}
+                className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition mt-2"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => {
+                navigate("/auth");
+                setIsMenuOpen(false);
+              }}
+              className="p-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+            >
+              Login
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

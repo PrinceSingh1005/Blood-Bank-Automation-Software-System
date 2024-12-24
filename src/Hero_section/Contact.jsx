@@ -7,7 +7,6 @@ const ContactUs = () => {
 
   return (
     <div className="h-screen p-10">
-      {/* Background */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <div
         className="absolute inset-0 -z-10"
@@ -21,11 +20,9 @@ const ContactUs = () => {
 
       {/* Content */}
       <div className="flex flex-col lg:flex-row items-center justify-evenly h-full pl-10 text-white relative z-10 gap-10">
-        {/* Contact Form */}
-        <div className="bg-white bg-opacity-20 p-8 rounded-lg shadow-lg backdrop-filter backdrop-blur-md text-black w-full lg:w-1/2 max-w-lg">
+        <div className="bg-white bg-opacity-20 p-8 mt-20 rounded-lg shadow-lg backdrop-filter backdrop-blur-md text-black w-full lg:w-1/2 max-w-lg">
           <h2 className="text-3xl font-bold mb-6 text-center text-white">Contact Us</h2>
           <form>
-            {/* Name */}
             <div className="mb-4">
               <label htmlFor="name" className="block text-white font-medium mb-2">
                 Name
@@ -39,7 +36,6 @@ const ContactUs = () => {
                 required
               />
             </div>
-            {/* Email */}
             <div className="mb-4">
               <label htmlFor="email" className="block text-white font-medium mb-2">
                 Email
@@ -53,7 +49,6 @@ const ContactUs = () => {
                 required
               />
             </div>
-            {/* Message */}
             <div className="mb-4">
               <label htmlFor="message" className="block text-white font-medium mb-2">
                 Message
@@ -67,7 +62,6 @@ const ContactUs = () => {
                 required
               ></textarea>
             </div>
-            {/* Submit Button */}
             <button
               onClick={submitHandler}
               type="submit"
@@ -78,8 +72,7 @@ const ContactUs = () => {
           </form>
         </div>
 
-        {/* Google Map */}
-        <div className="w-full lg:w-1/2 h-full lg:h-[500px] rounded-lg overflow-hidden">
+        <div className="w-full lg:w-1/2 h-full lg:h-[500px] rounded-lg overflow-hidden md:mt-16">
           <iframe
             title="Our Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.8530598644206!2d84.82941117539421!3d25.57655497746886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3992a9001d14ec65%3A0xae5cfb86e1debacd!2sNIT%20PATNA%20BIHTA%20CAMPUS!5e0!3m2!1sen!2sin!4v1732255691462!5m2!1sen!2sin"

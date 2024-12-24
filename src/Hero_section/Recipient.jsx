@@ -10,7 +10,6 @@ const Recipient = () => {
   const [trackingStatus, setTrackingStatus] = useState("Pending");
   const [notifications, setNotifications] = useState([]);
 
-  // Simulated blood availability data
   const bloodAvailability = {
     "A+": { available: true, estimatedTime: "2 hours" },
     "B+": { available: false, estimatedTime: "N/A" },
@@ -38,7 +37,6 @@ const Recipient = () => {
       return;
     }
 
-    // Simulate request submission and tracking
     setTrackingStatus("Request Submitted");
     setNotifications([
       ...notifications,
@@ -47,16 +45,13 @@ const Recipient = () => {
   };
 
   return (
-    <div className="max-h-fit bg-gray-100 flex flex-col px-6 py-24 space-y-6">
-      {/* Header */}
-      <header className="text-2xl font-bold text-center text-red-600">
+    <div className="h-screen bg-gray-400 flex flex-col px-6 py-24 space-y-6">
+      <header className="text-2xl font-bold text-center text-red-200">
         Recipient Interface
       </header>
 
-      {/* Tabs Section */}
       <div className="flex flex-col md:flex-row gap-6">
-        {/* Blood Request Form */}
-        <div className="flex-1 bg-white shadow-md p-6 rounded-lg">
+        <div className="flex-1 bg-gray-300 shadow-md p-6 rounded-lg">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Blood Request Form</h2>
           <form onSubmit={handleSubmitRequest} className="space-y-4">
             <div>
@@ -107,8 +102,7 @@ const Recipient = () => {
           </form>
         </div>
 
-        {/* Blood Availability Check */}
-        <div className="flex-1 bg-white shadow-md p-6 rounded-lg">
+        <div className="flex-1 bg-gray-300 shadow-md p-6 rounded-lg">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Blood Availability Check</h2>
           <div className="space-y-4">
             <div>
@@ -147,8 +141,7 @@ const Recipient = () => {
           </div>
         </div>
 
-        {/* Request Tracking */}
-        <div className="flex-1 bg-white shadow-md p-6 rounded-lg">
+        <div className="flex-1 bg-gray-300 shadow-md p-6 rounded-lg">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Request Tracking</h2>
           <div className="p-4 bg-gray-100 rounded">
             <p>
@@ -158,8 +151,7 @@ const Recipient = () => {
         </div>
       </div>
 
-      {/* Notifications */}
-      <div className="bg-white shadow-md p-6 rounded-lg">
+      <div className="bg-gray-300 shadow-md p-6 rounded-lg">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Notifications</h2>
         <ul className="space-y-2">
           {notifications.map((notification, index) => (

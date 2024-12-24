@@ -28,8 +28,33 @@ const LoginPage = () => {
     }));
   };
 
+  const authenticateForm = () => {
+    // Example credentials stored for authentication
+    const mockUsers = [
+      { username: "12hero34singh@gmail.com", password: "password123", role: "donor" },
+      { username: "admin@hospital.com", password: "adminpass", role: "hospital" },
+      { username: "receiver@test.com", password: "receiverpass", role: "receiver" },
+    ];
+  
+    // Find the user in the mock database
+    const user = mockUsers.find(
+      (u) => u.username === formData.username && u.password === formData.password
+    );
+  
+    // If user is found, validate the role
+    if (user && user.role === userRole) {
+      console.log("User authenticated:", user);
+      return true; // Authentication successful
+    } else {
+      console.error("Invalid username or password.");
+      alert("Invalid username or password. Please try again.");
+      return false; // Authentication failed
+    }
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!authenticateForm()) return; 
     console.log(isSignUp ? "SignUp Data" : "Login Data", { userRole, formData });
 
     // Simulate login
@@ -60,6 +85,7 @@ const LoginPage = () => {
   const toggleMode = () => {
     setIsSignUp((prevMode) => !prevMode);
   };
+
 
   return (
     <div className="flex w-full items-center justify-center">
@@ -185,8 +211,7 @@ const LoginPage = () => {
             </div>
           )}
 
-          <button
-            type="submit"
+          <button onSubmit={authenticateForm}
             className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors"
           >
             {isSignUp ? "SignUp" : "Login"}

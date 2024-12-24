@@ -5,7 +5,7 @@ const FirstPage = () => {
 
     return (
         <div className='flex h-screen gap-16 '>
-            <div className="left  w-7/10 bg-green-200">
+            <div className="left  w-7/10">
                 <img className='h-full' src="blood.jpg" alt="photo" />
             </div>
             <div className="left flex flex-col justify-center items-center">

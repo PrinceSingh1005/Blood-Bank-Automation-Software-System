@@ -109,9 +109,7 @@ const Admin = () => {
           </nav>
         </aside>
 
-        {/* Main Content */}
         <main className="flex-1 p-6">
-          {/* Dashboard */}
           {activeTab === "dashboard" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
@@ -133,8 +131,6 @@ const Admin = () => {
               </div>
             </div>
           )}
-
-          {/* Manage Donors */}
           {activeTab === "donors" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Manage Donors</h2>
@@ -165,7 +161,6 @@ const Admin = () => {
             </div>
           )}
 
-          {/* Manage Recipients */}
           {activeTab === "recipients" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Manage Recipients</h2>
@@ -190,7 +185,6 @@ const Admin = () => {
             </div>
           )}
 
-          {/* Blood Inventory */}
           {activeTab === "inventory" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Blood Inventory</h2>
@@ -221,7 +215,6 @@ const Admin = () => {
             </div>
           )}
 
-          {/* Reports Dashboard */}
           {activeTab === "reports" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Reports Dashboard</h2>

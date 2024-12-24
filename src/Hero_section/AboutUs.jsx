@@ -5,9 +5,9 @@ const AboutUs = () => {
 
     const navigate = useNavigate();
   return (
-    <div className="h-screen flex flex-col items-center justify-center text-center p-10 bg-gradient-to-b from-red-50 to-red-200">
-        <h1 className="text-5xl font-bold mt-16 mb-3 mx-auto boarder border-b-4 border-red-500">About Us</h1>
-      <div className="flex items-center justify-evenly h-full text-center">
+    <div className="flex flex-col items-center justify-center text-center p-4 bg-gradient-to-b from-red-300 to-red-200">
+        <h1 className="text-5xl font-bold mt-20 mb-3 mx-auto boarder border-b-4 border-red-500">About Us</h1>
+      <div className="flex flex-col-reverse md:flex-row items-center justify-evenly h-full text-center">
         <div className="w-3/5 text-center">
         <p className="text-lg leading-relaxed max-w-3xl mb-8">
           Welcome to **BloodConnect**, a platform dedicated to saving lives by
